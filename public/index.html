@@ -1,0 +1,47 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/jquery-3.5.1.slim.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/sweetalert.min.js"></script>
+	<script src="http://localhost:8111/socket.io/socket.io.js"></script>
+	<script>
+		(function () {
+			let scripts = [
+				'js/socket.js',
+				'js/main.js'
+			];
+			let styles = [
+				'css/style.css'
+			];
+			let ver = Math.floor(new Date() / 1000);
+			for (let i = 0; i < scripts.length; i++) {
+				let script = document.createElement('script');
+				script.src = scripts[i] + '?v=' + ver;
+				document.head.appendChild(script);
+			}
+			for (let i = 0; i < styles.length; i++) {
+				let style = document.createElement('link');
+				style.rel = 'stylesheet';
+				style.href = styles[i] + '?v=' + ver;
+				document.head.appendChild(style);
+			}
+		})();
+	</script>
+</head>
+<body>
+<div class="container">
+	<div class="row score">
+		<div class="col-6" id="left-col">0</div>
+		<div class="col-6" id="right-col">0</div>
+	</div>
+	<div class="row">
+		<div class="col-12 mode text-center" id="mode"></div>
+	</div>
+	<div class="row" style="position: absolute; bottom: 0;">
+		<div class="col-12 mode text-center"><button id="enable_audio" class="btn btn-success btn-xs">Включить звуки</button></div>
+	</div>
+</div>
+</body>
+</html>

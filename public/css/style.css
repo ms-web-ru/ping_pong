@@ -1,0 +1,39 @@
+@media (min-width: 1200px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: calc(100% - 20px);
+    }
+}
+
+.score {
+    font-size: 40em;
+    text-align: center;
+    line-height: 1;
+}
+
+.pitcher {
+    background: green;
+    color: #fff;
+}
+
+.mode {
+    font-size: 7em;
+}
+
+.winner {
+    animation: color-change 0.3s infinite;
+}
+
+@keyframes color-change {
+    0% {
+        color: #c70101;
+        background: #cce5ff;
+    }
+    50% {
+        color: #004cbd;
+        background: #ffcccc;
+    }
+    100% {
+        color: #209603;
+        background: #ffe188;
+    }
+}

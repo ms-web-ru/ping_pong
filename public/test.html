@@ -1,0 +1,74 @@
+<html>
+<head>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/jquery-3.5.1.slim.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="http://localhost:8111/socket.io/socket.io.js"></script>
+	<script>
+		(function () {
+			let scripts = [
+				'js/socket.js',
+				'js/main.js',
+				'js/test.js'
+			];
+			let styles = [
+				'css/style.css'
+			];
+			let ver = Math.floor(new Date() / 1000);
+			for (let i = 0; i < scripts.length; i++) {
+				let script = document.createElement('script');
+				script.src = scripts[i] + '?v=' + ver;
+				document.head.appendChild(script);
+			}
+			for (let i = 0; i < styles.length; i++) {
+				let style = document.createElement('link');
+				style.rel = 'stylesheet';
+				style.href = styles[i] + '?v=' + ver;
+				document.head.appendChild(style);
+			}
+		})();
+	</script>
+</head>
+<body>
+<div class="container text-center">
+	<div class="row">
+		<div class="col-12"><h3>Тест</h3></div>
+	</div>
+	<div class="row mb-3">
+		<div class="col-3">
+			<button class="btn btn-success" onclick="PongTestOBJ.changeMode();">Сменить режим</button>
+		</div>
+		<div class="col-3">
+			<button class="btn btn-success" onclick="PongTestOBJ.start();">Начать игру</button>
+		</div>
+		<div class="col-3">
+			<button class="btn btn-success" onclick="PongTestOBJ.scoreLeft();">Очко слева</button>
+		</div>
+		<div class="col-3">
+			<button class="btn btn-success" onclick="PongTestOBJ.scoreRight();">Очко справа</button>
+		</div>
+	</div>
+	<div class="row mb-3">
+		<div class="col-3">
+			<button class="btn btn-success" onclick="PongTestOBJ.unscoreLeft()">Минус слева</button>
+		</div>
+		<div class="col-3">
+			<button class="btn btn-success" onclick="PongTestOBJ.unscoreRight();">Минус справа</button>
+		</div>
+		<div class="col-3">
+			<button class="btn btn-success" onclick="PongTestOBJ.confirm();">Подтвердить</button>
+		</div>
+		<div class="col-3">
+			<button class="btn btn-success" onclick="PongTestOBJ.dismiss();">Отклонить</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<p>Подтверждать и отклонять диалоговые окна можно через сокет или нажатием на кнопку в диалоговом окне</p>
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>
